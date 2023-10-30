@@ -8,5 +8,6 @@
 <style scoped>
 h1 {
   color: #fff;
+  margin-left: 18px;
 }
 </style>

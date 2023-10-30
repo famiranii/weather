@@ -6,6 +6,7 @@
       collapsible
       collapsedWidth="0"
       width="320"
+      class="container"
     >
       <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
         <router-link to="/" class="router-link">
@@ -35,15 +36,13 @@
       </a-menu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header class="colapsed-icon">
         <menu-unfold-outlined
           v-if="collapsed"
-          class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
         <menu-fold-outlined
           v-else
-          class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
       </a-layout-header>
@@ -68,3 +67,18 @@ const selectedKeys = ref<string[]>(["1"]);
 const collapsed = ref<boolean>(false);
 </script>
 
+<style scoped>
+.container {
+  position: absolute;
+  z-index: 90;
+  height: 100vh;
+}
+.colapsed-icon {
+  position: absolute;
+  top: 0%;
+  color: #fff;
+  padding: 0;
+  font-size: 30px;
+  margin-left: 12px;
+}
+</style>
