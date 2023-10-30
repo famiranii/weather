@@ -1,11 +1,16 @@
 <script lang="ts" setup>
 import SelectCountry from "../../components/weather/SelectCountry.vue";
 import CardContent from "../../components/weather/CardContent.vue";
+import { ref } from "vue";
+let chosenCity = ref<object>({});
+const cityHandler = (city: object) => {
+  chosenCity.value = city;
+};
 </script>
 <template>
   <div class="weather-container">
-    <SelectCountry />
-    <CardContent />
+    <SelectCountry @cityHandler="cityHandler" />
+    <CardContent :chosenCity="chosenCity" />
   </div>
 </template>
 
