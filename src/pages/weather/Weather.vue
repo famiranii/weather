@@ -1,6 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SelectCountry from "../../components/weather/SelectCountry.vue";
+</script>
 <template>
-    <div>
-        farhad
-    </div>
+  <SelectCountry />
 </template>
