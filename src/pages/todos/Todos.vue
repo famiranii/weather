@@ -23,6 +23,14 @@ import Todo from "../../components/todo/Todo.vue";
 
 const newTask = ref<string>("");
 const tasks = ref<todoType[]>([]);
+const storedData = localStorage.getItem("todos");
+if (storedData) {
+  tasks.value = JSON.parse(storedData);
+}
+
+const setToLocalstorage = () => {
+  localStorage.setItem("todos", JSON.stringify(tasks.value));
+};
 
 const addTask = () => {
   if (newTask.value) {
@@ -32,6 +40,7 @@ const addTask = () => {
     ];
     newTask.value = "";
   }
+  setToLocalstorage();
 };
 
 const removeTask = (id: Id) => {
@@ -39,11 +48,13 @@ const removeTask = (id: Id) => {
 
   const filtered = tasks.value.filter((item) => item.id !== id);
   tasks.value = filtered;
+  setToLocalstorage();
 };
 const editTask = (id: Id, text: string) => {
   const index = tasks.value.findIndex((item) => item.id === id);
   tasks.value[index].title = text;
   console.log(tasks.value);
+  setToLocalstorage();
 };
 </script>
 
