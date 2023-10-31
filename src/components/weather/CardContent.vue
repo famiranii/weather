@@ -6,7 +6,7 @@
           >{{ temperature }} &degC</a-typography-title
         >
         <br />
-        <a-typography-title :level="2">{{ weather }}</a-typography-title>
+        <a-typography-title :level="3">{{ weather }}</a-typography-title>
       </div>
     </a-card>
   </div>
@@ -57,8 +57,7 @@ onUpdated(() => {
 
 <style>
 .card {
-  min-width: 300px;
-  max-width: 500px;
+  width: 350px;
   margin-top: 3rem;
 }
 </style>

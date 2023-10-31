@@ -60,7 +60,7 @@ const editTask = (id: Id, text: string) => {
 
 <style scoped>
 .todo-container {
-  margin: 5rem auto;
+  margin: 10rem auto;
   display: flex;
   flex-direction: column;
   width: 300px;
