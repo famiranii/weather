@@ -2,7 +2,9 @@
   <div>
     <a-card class="card" :title="city" :bordered="false" align="center">
       <div style="width: 300px">
-        <a-typography-title :level="2">{{ temperature }} &degC</a-typography-title>
+        <a-typography-title :level="2"
+          >{{ temperature }} &degC</a-typography-title
+        >
         <br />
         <a-typography-title :level="2">{{ weather }}</a-typography-title>
       </div>
@@ -11,6 +13,7 @@
 </template>
 <script setup lang="ts">
 import { ref, onUpdated } from "vue";
+import weatherHook from "../hooks/weather.hook";
 const props = defineProps({
   chosenCity: Object,
 });
@@ -19,7 +22,7 @@ const city = ref(localStorage.getItem("city") || "choose your city");
 const lat = ref(localStorage.getItem("lat"));
 const lng = ref(localStorage.getItem("lng"));
 const temperature = ref<number | string>("temprature");
-const weather = ref<string | number>("weather code");
+const weather = ref<string>("weather");
 const fetchData = async (latitude: number, longitude: number) => {
   try {
     const response = await fetch(
@@ -28,7 +31,7 @@ const fetchData = async (latitude: number, longitude: number) => {
     if (response.ok) {
       const data = await response.json();
       temperature.value = data.hourly.temperature_2m[0];
-      weather.value = data.hourly.weathercode[0];
+      weather.value = weatherHook(data.hourly.weathercode[0]);
     } else {
       console.error("Failed to fetch data");
     }
