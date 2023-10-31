@@ -13,6 +13,8 @@ declare module 'vue' {
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
+    AList: typeof import('ant-design-vue/es')['List']
+    AListItem: typeof import('ant-design-vue/es')['ListItem']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     AppHeader: typeof import('./src/components/header/AppHeader.vue')['default']
@@ -24,5 +26,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SelectCountry: typeof import('./src/components/weather/SelectCountry.vue')['default']
     Sidebar: typeof import('./src/components/sidebar/Sidebar.vue')['default']
+    Todo: typeof import('./src/components/todo/Todo.vue')['default']
   }
 }
