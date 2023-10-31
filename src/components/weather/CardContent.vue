@@ -27,7 +27,6 @@ const fetchData = async (latitude: number, longitude: number) => {
     );
     if (response.ok) {
       const data = await response.json();
-      console.log(data.hourly.temperature_2m[0]);
       temperature.value = data.hourly.temperature_2m[0];
       weather.value = data.hourly.weathercode[0];
     } else {

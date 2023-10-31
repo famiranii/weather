@@ -1,3 +1,9 @@
+<template>
+  <div class="weather-container">
+    <SelectCountry @cityHandler="cityHandler" />
+    <CardContent :chosenCity="chosenCity" />
+  </div>
+</template>
 <script lang="ts" setup>
 import SelectCountry from "../../components/weather/SelectCountry.vue";
 import CardContent from "../../components/weather/CardContent.vue";
@@ -7,12 +13,6 @@ const cityHandler = (city: object) => {
   chosenCity.value = city;
 };
 </script>
-<template>
-  <div class="weather-container">
-    <SelectCountry @cityHandler="cityHandler" />
-    <CardContent :chosenCity="chosenCity" />
-  </div>
-</template>
 
 <style scoped>
 .weather-container {

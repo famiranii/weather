@@ -2,16 +2,25 @@
   <div class="dashboard-container">
     <a-typography-title :level="1">{{ currentTime }}</a-typography-title>
     <a-typography-title :level="2"
-      >Good morning {{ username }}</a-typography-title
+      >Good morning {{ setting.name }}</a-typography-title
     >
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, reactive } from "vue";
+import settingType from "../../types/setting.type";
 
 const currentTime = ref<string>(getCurrentTime());
-const username = ref<string | null>(localStorage.getItem("user-nadinsoft"));
+const settingString = ref<string | null>(localStorage.getItem("setting"));
+let setting = reactive<settingType>({
+  name: "",
+  theme: "",
+  locale: "",
+});
+if (settingString.value) {
+  setting = reactive(JSON.parse(settingString.value));
+}
 
 onMounted(() => {
   setInterval(() => {
