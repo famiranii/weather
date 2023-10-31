@@ -10,6 +10,7 @@
         :key="index"
         :item="item"
         @removeTask="removeTask"
+        @editTask="editTask"
       />
     </a-list>
   </div>
@@ -31,7 +32,6 @@ const addTask = () => {
     ];
     newTask.value = "";
   }
-  console.log(tasks.value);
 };
 
 const removeTask = (id: Id) => {
@@ -39,6 +39,11 @@ const removeTask = (id: Id) => {
 
   const filtered = tasks.value.filter((item) => item.id !== id);
   tasks.value = filtered;
+};
+const editTask = (id: Id, text: string) => {
+  const index = tasks.value.findIndex((item) => item.id === id);
+  tasks.value[index].title = text;
+  console.log(tasks.value);
 };
 </script>
 
