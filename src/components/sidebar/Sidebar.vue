@@ -35,16 +35,13 @@
         </router-link>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
+    <a-layout :class="[theme === 'dark' && 'layout-container']">
       <a-layout-header class="colapsed-icon">
         <menu-unfold-outlined
           v-if="collapsed"
           @click="() => (collapsed = !collapsed)"
         />
-        <menu-fold-outlined
-          v-else
-          @click="() => (collapsed = !collapsed)"
-        />
+        <menu-fold-outlined v-else @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
       <slot></slot>
     </a-layout>
@@ -65,6 +62,11 @@ import {
 
 const selectedKeys = ref<string[]>(["1"]);
 const collapsed = ref<boolean>(false);
+const themeString = ref<string | null>(localStorage.getItem("setting"));
+let theme = ref<string>("");
+if (themeString.value) {
+  theme = JSON.parse(themeString.value).theme;
+}
 </script>
 
 <style scoped>
@@ -80,5 +82,8 @@ const collapsed = ref<boolean>(false);
   padding: 0;
   font-size: 30px;
   margin-left: 12px;
+}
+.layout-container {
+  background-color: rgb(76, 75, 75);
 }
 </style>
