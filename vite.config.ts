@@ -4,6 +4,7 @@ import { AntDesignVueResolver } from "unplugin-vue-components/resolvers";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
+  base: '/weather',
   plugins: [
     vue(),
     // ...
