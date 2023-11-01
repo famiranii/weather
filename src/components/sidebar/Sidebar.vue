@@ -12,25 +12,25 @@
         <router-link to="/" class="router-link">
           <a-menu-item key="1">
             <dashboard-outlined />
-            <span>Dashboard</span>
+            <span>{{ $t("Dashboard") }}</span>
           </a-menu-item>
         </router-link>
         <router-link to="/todos" class="router-link">
           <a-menu-item key="2">
             <CheckCircleOutlined />
-            <span>Todos</span>
+            <span>{{ $t("Todos") }}</span>
           </a-menu-item>
         </router-link>
         <router-link to="weather" class="router-link">
           <a-menu-item key="3">
             <AntCloudOutlined />
-            <span>Weather</span>
+            <span>{{ $t("Weather") }}</span>
           </a-menu-item>
         </router-link>
         <router-link to="profile" class="router-link">
           <a-menu-item key="4">
             <UserOutlined />
-            <span>Profile</span>
+            <span>{{ $t("Profile") }}</span>
           </a-menu-item>
         </router-link>
       </a-menu>

@@ -1,8 +1,8 @@
 <template>
   <div class="todo-container" @keydown.enter="addTask">
     <div class="todo-inputs">
-      <a-input v-model:value="newTask" placeholder="Add a new task" />
-      <a-button @click="addTask">Add Task</a-button>
+      <a-input v-model:value="newTask" :placeholder="$t('Add a new task')" />
+      <a-button @click="addTask">{{ $t("Add Task") }}</a-button>
     </div>
     <a-list :dataSource="tasks">
       <Todo

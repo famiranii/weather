@@ -4,7 +4,7 @@
       v-model:value="searchedCity"
       :size="size"
       style="width: 350px"
-      placeholder="Search for a city"
+      :placeholder="$t('Search for a city')"
       @click="hidden = false"
     />
     <div class="select-city" :hidden="hidden">

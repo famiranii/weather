@@ -2,7 +2,7 @@
   <div class="dashboard-container">
     <a-typography-title :level="1">{{ currentTime }}</a-typography-title>
     <a-typography-title :level="2"
-      >Good morning {{ setting.name }}</a-typography-title
+      >{{ $t('good morning') }} {{ setting.name }}</a-typography-title
     >
   </div>
 </template>

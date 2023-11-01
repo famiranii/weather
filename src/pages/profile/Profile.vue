@@ -1,7 +1,11 @@
 <template>
   <div class="profile-container">
     <div>
-      <a-input v-model:value="setting.name" size="large" placeholder="Name" />
+      <a-input
+        v-model:value="setting.name"
+        size="large"
+        :placeholder="$t('Name')"
+      />
       <a-select
         class="selector"
         v-model:value="setting.theme"
@@ -15,7 +19,9 @@
         size="large"
       ></a-select>
       <div class="setting-btn">
-        <a-button type="primary" @click="saveSetting">Save</a-button>
+        <a-button type="primary" @click="saveSetting">{{
+          $t("Save")
+        }}</a-button>
       </div>
     </div>
   </div>
@@ -23,6 +29,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import settingType from "../../types/setting.type";
+
 let setting = reactive<settingType>({
   name: "",
   theme: "theme",
@@ -62,7 +69,7 @@ const saveSetting = () => {
   width: 100%;
   margin-top: 2rem;
 }
-.setting-btn{
+.setting-btn {
   display: flex;
   justify-content: center;
   margin-top: 2rem;

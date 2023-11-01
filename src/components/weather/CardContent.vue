@@ -1,12 +1,19 @@
 <template>
   <div>
-    <a-card class="card" :title="city" :bordered="false" align="center">
+    <a-card
+      class="card"
+      :title="$t(`${city}`)"
+      :bordered="false"
+      align="center"
+    >
       <div style="width: 300px">
         <a-typography-title :level="2"
-          >{{ temperature }} &degC</a-typography-title
+          >{{ $t(`${temperature}`) }} &degC</a-typography-title
         >
         <br />
-        <a-typography-title :level="3">{{ weather }}</a-typography-title>
+        <a-typography-title :level="3">{{
+          $t(`${weather}`)
+        }}</a-typography-title>
       </div>
     </a-card>
   </div>
@@ -22,7 +29,7 @@ const city = ref(localStorage.getItem("city") || "choose your city");
 const lat = ref(localStorage.getItem("lat"));
 const lng = ref(localStorage.getItem("lng"));
 const temperature = ref<number | string>("temprature");
-const weather = ref<string>("weather");
+const weather = ref<string>("Weather");
 const fetchData = async (latitude: number, longitude: number) => {
   try {
     const response = await fetch(
